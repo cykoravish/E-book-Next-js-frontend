@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { Book } from "@/types";
+import DownloadButton from "./components/DownloadButton";
 // import DownloadButton from './components/DownloadButton';
 
 const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
-//   console.log("params", await params);
+  //   console.log("params", await params);
   let book: Book | null = null;
   try {
     const response = await fetch(
@@ -19,8 +20,9 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
       throw new Error("Error fetching book");
     }
     book = await response.json();
-  } catch (err: any) {
+  } catch (err: unknown) {
     throw new Error("Error fetching book");
+    console.log(err);
   }
 
   if (!book) {
@@ -33,7 +35,7 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
         <h2 className="mb-5 text-5xl font-bold leading-[1.1]">{book.title}</h2>
         <span className="font-semibold">by {book.author.name}</span>
         <p className="mt-5 text-lg leading-8">{book.description}</p>
-        {/* <DownloadButton fileLink={book.file} /> */}
+        <DownloadButton fileLink={book.file} />
       </div>
       <div className="flex justify-end">
         <Image
@@ -51,4 +53,3 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
 };
 
 export default SingleBookPage;
-
