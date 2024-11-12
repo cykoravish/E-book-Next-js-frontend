@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Book Platform Frontend
 
-## Getting Started
+This is the frontend for the E-Book Platform, built using Next.js. It connects to a Node.js backend API that provides functionalities such as user authentication, e-book management, and file uploads. Users can log in, create accounts, and manage their collection of e-books, all with a seamless UI built in Next.js.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Authentication**: Users can sign up and log in to access personalized content.
+- **E-Book Management**: Users can view, add, edit, and delete e-books.
+- **File Upload**: Users can upload e-books in PDF format and cover images.
+- **Responsive Design**: Built to work smoothly on mobile, tablet, and desktop.
+- **Next.js for SSR**: Server-side rendering for fast performance and SEO-friendly pages.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: React framework with server-side rendering and static site generation.
+- **React**: Frontend UI library.
+- **TypeScript**: Provides type safety across the codebase.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Axios**: For making HTTP requests to the backend API.
+- **JWT**: Used to securely authenticate users via tokens.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
 
-## Learn More
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/cykoravish/E-book-Next-js-frontend.git
+    cd E-book-Next-js-frontend
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Set up environment variables:
+    Create a `.env` file in the root directory and add the following variables as described in sample env file:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```plaintext
+    BACKEND_URL=
+    ```
 
-## Deploy on Vercel
+4. Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The server will start on `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Available Pages and Routes
+
+### Authentication
+
+- **Login**: `/login` - User login page to access the platform.
+- **Signup**: `/signup` - User registration page to create a new account.
+
+### E-Book Management
+
+- **Home**: `/` - Displays a list of available e-books.
+- **My Books**: `/my-books` - Shows e-books created by the logged-in user.
+- **Add Book**: `/add-book` - Form to add a new book.
+- **Book Details**: `/books/[id]` - Page to view details of a specific book.
+
+## Usage
+
+1. **Sign Up**: Create an account to get access to your personalized e-book collection.
+2. **Login**: Log in with your credentials to start adding and managing books.
+3. **Manage E-Books**:
+   - Add new e-books, including uploading PDF files and cover images.
+   - View details, edit, and delete your e-books.
+
+## Libraries Used
+
+- **Next.js**: For SSR and client-side routing.
+- **Axios**: For easy API calls to the backend.
+- **Tailwind CSS**: For quick and responsive styling.
+- **jwt-decode**: To decode JWT tokens and manage user authentication state.
+- **Formik and Yup**: For form handling and validation in signup and login forms.
+
+## Environment Variables
+
+The `.env.local` file should contain:
+
+- `NEXT_PUBLIC_API_BASE_URL`: The base URL of the backend API (e.g., `http://localhost:3000/api`).
+
+## Best Practices Followed
+
+- **TypeScript**: Used to enforce type safety across the application.
+- **Component-Based Architecture**: Organized by reusable components for consistent design.
+- **Error Handling**: Consistent error handling for API requests and form validation.
+- **JWT Authentication**: User authentication is managed through JWT stored in cookies or localStorage.
+- **Responsive UI**: Designed with mobile-first principles for a smooth experience on all devices.
+
+## Contributing
+
+If you'd like to contribute to this project, please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
